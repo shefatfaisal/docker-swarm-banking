@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    configs:
+      - source: nginx_conf
+        target: /etc/nginx/nginx.conf
+    deploy:
+      replicas: 1
+      
+  internetbanking:
+    image: shefatfaisal/ib-name
+    deploy:
+      replicas: 3
+    volumes:
+      - /var/lib/internetbanking
+  mobilebanking:
+    image: shefatfaisal/mobilebanking-name
+    deploy:
+      replicas: 3
+    volumes:
+      - /var/lib/mobilebanking
+  insurance:
+    image: shefatfaisal/insurance-name
+    deploy:
+      replicas: 3
+    volumes:
+      - /var/lib/insurance
+  loan:
+    image: shefatfaisal/loans-name
+    deploy:
+      replicas: 3
+    volumes:
+      - /var/lib/loan
+configs:
+  nginx_conf:
+    external: true
