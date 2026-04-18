@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/ReyazShaik/dockerproject.git'
+                git 'https://github.com/shefatfaisal/docker-swarm-banking.git'
             }
         }
         stage('build') {
