@@ -19,7 +19,7 @@ pipeline {
         }
         stage('push') {
             steps {
-                sh 'docker login -u reyadocker -p $password'
+                sh 'docker login -u shefatfaisal -p $password'
                 sh 'docker push $repo'
             }
         }
